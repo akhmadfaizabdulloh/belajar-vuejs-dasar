@@ -14,6 +14,10 @@ const data = {
     id:"hello"
 };
 
+function helloFunction() {
+    return "Hello Function";
+}
+
 </script>
 
 <template>
@@ -41,6 +45,10 @@ const data = {
     <!-- Nested Object -->
     <div :class="data.class" v-html="helloBro"></div>
 
+    <!-- JS expression di template -->
+    <h1 v-bind="data">{{ hello.toUpperCase() }}</h1>
+    <h2>{{ 100 * 200 }}</h2>
+    <h2>{{ helloFunction() }}</h2>
 
 </template>
 
