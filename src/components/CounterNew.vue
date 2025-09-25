@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { nextTick, ref } from 'vue';
 
 console.info(`Load component`);
 let counter = ref({
@@ -7,15 +7,42 @@ let counter = ref({
     name: "Eko"
 });
 
-function increment(){
+// function increment(){
+//     console.info(`Increment counter : ${counter.value.count}`);
+//     counter.value= {
+//         name: counter.value.name,
+//         count: counter.value.count + 1
+//     };
+
+//     // silakan begini juga boleh
+//     // counter.value.count++;
+// }
+
+async function increment(){
     console.info(`Increment counter : ${counter.value.count}`);
     counter.value= {
         name: counter.value.name,
         count: counter.value.count + 1
     };
 
-    // silakan begini juga boleh
     // counter.value.count++;
+    // counter.value.count++;
+    // counter.value.count++;
+    // counter.value.count++;
+    // counter.value.count++;
+    // counter.value.count++;
+    
+    await nextTick();
+
+    counter.value.count++;
+
+    await nextTick();
+
+    counter.value.count++;
+
+    await nextTick();
+
+    console.log("Increment count after nextTick")
 }
 
 </script>
